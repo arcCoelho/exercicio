@@ -2,6 +2,8 @@ package com.devsuperior.crud_final.service;
 
 import java.util.Optional;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
@@ -50,7 +52,7 @@ public class ClientService {
 			repo.save(entity);
 			
 			dto = new ClientDTO(entity);
-		} catch (EmptyResultDataAccessException e) {
+		} catch (EntityNotFoundException e) {
 			throw new ResourcesNotFoundException("O recurso 'Cliente' de id: "+id+" não foi encontrado");
 		}
 		return dto;
