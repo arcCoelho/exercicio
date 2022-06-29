@@ -52,7 +52,7 @@ public class ClientService {
 			repo.save(entity);
 			
 			dto = new ClientDTO(entity);
-		} catch (EntityNotFoundException e) {
+		} catch (EntityNotFoundException e) {//troquei a exception
 			throw new ResourcesNotFoundException("O recurso 'Cliente' de id: "+id+" não foi encontrado");
 		}
 		return dto;
